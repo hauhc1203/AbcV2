@@ -1,5 +1,5 @@
  -- ################################# CREATE TABLE ###################################################################
--- create database e_learning_web;
+create database e_learning_web;
 use e_learning_web;
    create table role(
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
