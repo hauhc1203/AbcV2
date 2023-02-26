@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  database:
+    image: mysql
+    ports:
+      - "33061:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    #    restart: always
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: abcd1234
+      MYSQL_DATABASE: e_learning_web
+      MYSQL_USER: root
+      MYSQL_PASSWORD: abcd1234
+  web_be:
+    image: doan
+    depends_on:
+      - database
+    environment:
+      SPRING_APPLICATION_JSON: '{
+                "spring.datasource.url":"jdbc:mysql://192.168.31.253:33061/e_learning_web",
+                "spring.profiles.active":"prod",
+                "spring.datasource.username":"root",
+                "spring.datasource.password":"abcd1234",
+                "spring.datasource.driverClassName":"com.mysql.cj.jdbc.Driver"
+              }'
+    ports:
+      - "8080:8080"
+
