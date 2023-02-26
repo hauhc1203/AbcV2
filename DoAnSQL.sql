@@ -1,5 +1,3 @@
- -- ################################# CREATE TABLE ###################################################################
-create database e_learning_web;
 use e_learning_web;
    create table role(
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -138,8 +136,6 @@ create table exam(
  
  
  
- 
- -- ################################# INSERT DATA ###################################################################
 insert into role values (1,'ROLE_USER'),(2,'ROLE_ADMIN');
 
 INSERT INTO `e_learning_web`.`app_user` (`address`, `email`, `full_name`, `mail_confirm`, `password`, `phone_number`, `status`, `user_name`, `role_id`) 
